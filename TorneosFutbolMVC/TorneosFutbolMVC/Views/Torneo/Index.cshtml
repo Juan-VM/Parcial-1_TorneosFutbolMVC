@@ -1,0 +1,71 @@
+﻿@model List<TorneosFutbolMVC.Models.Torneo>
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Torneos</h2>
+
+        <a asp-action="Create"
+           class="btn btn-success">
+            Nuevo Torneo
+        </a>
+    </div>
+
+    <table class="table table-striped table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Edición</th>
+                <th>Estado</th>
+                <th>Creado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var torneo in Model)
+            {
+                <tr>
+                    <td>@torneo.Nombre</td>
+
+                    <td>@torneo.Edicion</td>
+
+                    <td>
+                        @(torneo.Activo ? "Activo" : "Inactivo")
+                    </td>
+
+                    <td>
+                        @torneo.CreadoEn.ToString("dd/MM/yyyy")
+                    </td>
+
+                    <td>
+
+                        <a asp-action="Detail"
+                           asp-route-id="@torneo.Id"
+                           class="btn btn-primary btn-sm">
+                            Detalle
+                        </a>
+
+                        <a asp-action="Edit"
+                           asp-route-id="@torneo.Id"
+                           class="btn btn-warning btn-sm">
+                            Editar
+                        </a>
+
+                        <a asp-action="Desactivar"
+                           asp-route-id="@torneo.Id"
+                           class="btn btn-danger btn-sm">
+                            Desactivar
+                        </a>
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

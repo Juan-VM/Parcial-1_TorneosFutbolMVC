@@ -1,0 +1,53 @@
+﻿@model TorneosFutbolMVC.Models.Equipo
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header">
+            <h3>Editar Equipo</h3>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="Edit">
+
+                <input asp-for="Id" hidden />
+                <input asp-for="TorneoId" hidden />
+
+                <div class="mb-3">
+
+                    <label asp-for="Nombre"></label>
+
+                    <input asp-for="Nombre"
+                           class="form-control" />
+
+                    <span asp-validation-for="Nombre"
+                          class="text-danger"></span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Ciudad"></label>
+
+                    <input asp-for="Ciudad"
+                           class="form-control" />
+
+                    <span asp-validation-for="Ciudad"
+                          class="text-danger"></span>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Actualizar
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
