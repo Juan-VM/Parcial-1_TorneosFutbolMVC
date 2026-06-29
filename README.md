@@ -1,0 +1,2 @@
+# Parcial-1_TorneosFutbolMVC
+El proyecto consiste en el desarrollo de una aplicación web para la gestión de torneos de fútbol utilizando ASP.NET Core MVC y Supabase. El sistema permite administrar torneos, equipos y partidos, aplicando reglas de negocio definidas por los requerimientos de la asignación. La aplicación fue desarrollada utilizando el lenguaje C# y la arquitectura Modelo-Vista-Controlador (MVC), separando adecuadamente las responsabilidades entre la interfaz de usuario, la lógica de negocio y el acceso a los datos.
