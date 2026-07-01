@@ -116,7 +116,6 @@ Instalar los siguientes paquetes NuGet:
 
 ```powershell
 Install-Package Supabase -Version 1.1.1
-Install-Package Newtonsoft.Json
 Install-Package Microsoft.AspNetCore.Mvc.NewtonsoftJson
 ```
 
