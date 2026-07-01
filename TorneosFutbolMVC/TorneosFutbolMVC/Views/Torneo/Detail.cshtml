@@ -1,196 +1,125 @@
 ﻿@model TorneosFutbolMVC.Models.TorneoDetalleViewModel
 
 <div class="container mt-4">
-
     <div class="card mb-4">
-
         <div class="card-body">
-
             <h2>@Model.Torneo.Nombre</h2>
-
             <p>
                 <strong>Edición:</strong>
                 @Model.Torneo.Edicion
             </p>
-
             <p>
                 <strong>Estado:</strong>
                 @(Model.Torneo.Activo ? "Activo" : "Inactivo")
             </p>
-
         </div>
-
     </div>
-
     <!-- EQUIPOS -->
-
     <div class="d-flex justify-content-between mb-3">
-
         <h3>Equipos</h3>
-
         <a asp-controller="Equipo"
            asp-action="Create"
            asp-route-torneoId="@Model.Torneo.Id"
            class="btn btn-success">
-
             Agregar Equipo
-
         </a>
-
     </div>
-
     <table class="table table-bordered">
-
         <thead class="table-dark">
-
             <tr>
                 <th>Nombre</th>
                 <th>Ciudad</th>
                 <th></th>
             </tr>
-
         </thead>
-
         <tbody>
-
             @foreach (var equipo in Model.Equipos)
             {
                 <tr>
-
                     <td>@equipo.Nombre</td>
-
                     <td>@equipo.Ciudad</td>
-
                     <td>
-
                         <a asp-controller="Equipo"
                            asp-action="Edit"
                            asp-route-id="@equipo.Id"
                            class="btn btn-warning btn-sm">
-
                             Editar
-
                         </a>
-
                         <a asp-controller="Equipo"
                            asp-action="Delete"
                            asp-route-id="@equipo.Id"
                            class="btn btn-danger btn-sm">
-
                             Eliminar
-
                         </a>
-
                     </td>
-
                 </tr>
             }
-
         </tbody>
-
     </table>
-
     <hr />
-
     <!-- PARTIDOS -->
-
     <div class="d-flex justify-content-between mb-3">
-
         <h3>Partidos</h3>
-
         <div>
-
             <a asp-controller="Partido"
                asp-action="Create"
                asp-route-torneoId="@Model.Torneo.Id"
                class="btn btn-primary">
-
                 Nuevo Partido
-
             </a>
-
             <a asp-controller="Partido"
                asp-action="GenerarAleatorios"
                asp-route-torneoId="@Model.Torneo.Id"
                class="btn btn-success">
-
                 Generar Aleatorios
-
             </a>
-
         </div>
-
     </div>
-
     <table class="table table-striped">
-
         <thead class="table-dark">
-
             <tr>
-
                 <th>Local</th>
                 <th>Visitante</th>
                 <th>Fecha | Hora</th>
                 <th>Resultado</th>
                 <th>Estado</th>
                 <th></th>
-
             </tr>
-
         </thead>
-
         <tbody>
-
             @foreach (var partido in Model.Partidos)
             {
                 <tr>
-
                     <td>@partido.EquipoLocal</td>
-
                     <td>@partido.EquipoVisitante</td>
-
                     <td>
                         @partido.FechaPartido
                     </td>
-
                     <td>
                         @partido.GolesLocal - @partido.GolesVisitante
                     </td>
-
                     <td>
                         @(partido.Jugado ? "Jugado" : "Pendiente")
                     </td>
-
                     <td>
-
                         @if (!partido.Jugado)
                         {
                             <a asp-controller="Partido"
                                asp-action="Resultado"
                                asp-route-id="@partido.Id"
                                class="btn btn-success btn-sm">
-
                                 Resultado
-
                             </a>
-
                             <a asp-controller="Partido"
                                asp-action="Delete"
                                asp-route-id="@partido.Id"
                                class="btn btn-danger btn-sm">
-
                                 Eliminar
-
                             </a>
                         }
-
                     </td>
-
                 </tr>
             }
-
         </tbody>
-
     </table>
-
 </div>

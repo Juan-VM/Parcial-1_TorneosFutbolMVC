@@ -1,52 +1,31 @@
 ﻿@model TorneosFutbolMVC.Models.PartidoResultadoViewModel
 
 <div class="container mt-4">
-
     <div class="card shadow">
-
         <div class="card-header">
             <h3>Registrar Resultado</h3>
         </div>
 
         <div class="card-body">
-
             <form asp-action="Resultado">
-
                 <input asp-for="PartidoId" hidden />
 
                 <div class="mb-3">
-
                     <label asp-for="GolesLocal"></label>
-
-                    <input asp-for="GolesLocal"
-                           class="form-control" />
-
-                    <span asp-validation-for="GolesLocal"
-                          class="text-danger"></span>
-
+                    <input asp-for="GolesLocal" class="form-control" />
+                    <span asp-validation-for="GolesLocal" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-
                     <label asp-for="GolesVisitante"></label>
-
-                    <input asp-for="GolesVisitante"
-                           class="form-control" />
-
-                    <span asp-validation-for="GolesVisitante"
-                          class="text-danger"></span>
-
+                    <input asp-for="GolesVisitante" class="form-control" />
+                    <span asp-validation-for="GolesVisitante" class="text-danger"></span>
                 </div>
 
-                <button type="submit"
-                        class="btn btn-success">
+                <button type="submit" class="btn btn-success">
                     Guardar Resultado
                 </button>
-
             </form>
-
         </div>
-
     </div>
-
 </div>

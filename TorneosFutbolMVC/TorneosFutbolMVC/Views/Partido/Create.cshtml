@@ -1,79 +1,52 @@
 ﻿@model TorneosFutbolMVC.Models.PartidoCrearViewModel
 
 @{
-    var equipos =
-        ViewBag.Equipos as List<TorneosFutbolMVC.Models.Equipo>;
+    var equipos = ViewBag.Equipos as List<TorneosFutbolMVC.Models.Equipo>;
 }
 
 <div class="container mt-4">
-
     <div class="card shadow">
-
-        <div class="card-header">
+        <div class="card-header"> 
             <h3>Nuevo Partido</h3>
         </div>
 
         <div class="card-body">
-
             <form asp-action="Create">
-
                 <input asp-for="TorneoId" hidden />
 
                 <div class="mb-3">
-
                     <label>Equipo Local</label>
-
-                    <select asp-for="EquipoLocalId"
-                            class="form-select">
-
+                    <select asp-for="EquipoLocalId" class="form-select">
                         @foreach (var equipo in equipos)
                         {
                             <option value="@equipo.Id">
                                 @equipo.Nombre
                             </option>
                         }
-
                     </select>
-
                 </div>
 
                 <div class="mb-3">
-
                     <label>Equipo Visitante</label>
-
-                    <select asp-for="EquipoVisitanteId"
-                            class="form-select">
-
+                    <select asp-for="EquipoVisitanteId" class="form-select">
                         @foreach (var equipo in equipos)
                         {
                             <option value="@equipo.Id">
                                 @equipo.Nombre
                             </option>
                         }
-
                     </select>
-
                 </div>
 
                 <div class="mb-3">
-
                     <label asp-for="FechaPartido"></label>
-
-                    <input asp-for="FechaPartido"
-                           type="datetime-local"
-                           class="form-control" />
-
+                    <input asp-for="FechaPartido" type="datetime-local" class="form-control" />
                 </div>
 
-                <button type="submit"
-                        class="btn btn-success">
+                <button type="submit" class="btn btn-success">
                     Crear Partido
                 </button>
-
             </form>
-
         </div>
-
     </div>
-
 </div>

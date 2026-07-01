@@ -119,17 +119,11 @@ namespace TorneosFutbolMVC.Services
                 Partido partido = new()
                 {
                     TorneoId = torneoId,
-
                     EquipoLocalId = equipos[i].Id,
-
                     EquipoVisitanteId = equipos[i + 1].Id,
-
                     FechaPartido = DateTime.Now.AddDays(i),
-
                     GolesLocal = 0,
-
                     GolesVisitante = 0,
-
                     Jugado = false
                 };
 
